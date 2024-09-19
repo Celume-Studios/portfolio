@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ServicesContainer from "./components/Services";
+import AboutUs from "./components/AboutUs";
+import styled from "styled-components";
+import Carousel from "./components/OurWork";
+import Footer from "./components/Footer";
+
+const MainContainer = styled.div`
+  width: 100%;
+  height: 6080px; /* You can keep the height as it is */
+  background: #111;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        Welcome to the Celumeeeeeee Websiteeeeee
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContainer>
+      <Navbar />
+      <ServicesContainer />
+      <AboutUs />
+      <Carousel />
+      <Footer />
+    </MainContainer>
   );
 }
 
