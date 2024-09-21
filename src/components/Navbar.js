@@ -24,8 +24,8 @@ const StyledHeader = styled(Header)`
 `;
 
 const Logo = styled.img`
-  width: 104px;
-  height: 104px;
+  width: 80px;
+  height: 80px;
   flex-shrink: 0;
 `;
 

@@ -258,12 +258,15 @@ const ServicesContainer = () => {
         niche online or as an established enterprise striving for digital
         evolution, we are here to empower you every step of the way..
       </StyledContainer>
-      <StyledButton>
-        <ButtonText>Contact Us</ButtonText>
-        <ArrowIcon>
-          <ContactUsArrow />
-        </ArrowIcon>
-      </StyledButton>
+      <StyledButton
+  onClick={() => scrollToSection("contact-us")}
+  style={{ cursor: 'pointer' }}  // Add this line to change the cursor
+>
+  <ButtonText>Contact Us</ButtonText>
+  <ArrowIcon>
+    <ContactUsArrow />
+  </ArrowIcon>
+</StyledButton>
       <GradientTextContainer id="services">
         <GradientText>services we provide</GradientText>
       </GradientTextContainer>
@@ -285,9 +288,11 @@ const ServicesContainer = () => {
         </ItemContainer>
         <ItemContainer>
           <Icon src={GamingLogo} alt="Game Making" />
-          <Label>Game Making</Label>
+          <Label>3D Applications 
+          </Label>
           <Description>
-            Form a graph of ideas with backlinking notes
+          We cover everything AR and VR applications to virtual interactive 
+          tours tailor made for customer experience
           </Description>
         </ItemContainer>
         <ItemContainer>
@@ -306,6 +311,14 @@ const ServicesContainer = () => {
 };
 
 export default ServicesContainer;
+
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const ButtonText = styled.span`
   color: rgba(237, 237, 237, 0.81);

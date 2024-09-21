@@ -10,15 +10,17 @@ const projectData = [
     id: 1,
     title: "Aone Visa",
     description:
-      "Lorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenati.Lorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenatiLorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenati",
+      "A Trusted Partner in Global Immigration Services. AoneVisa Consultancy specializes in simplifying visa applications and immigration processes for individuals looking to study, work, travel, or settle abroad. With a dedicated team of experienced professionals, AoneVisa offers personalized solutions tailored to each client's unique requirements.Their comprehensive services cover a wide range of visa categories, including student visas, work permits, tourist visas, and permanent residency applications, for multiple countries. Known for their expertise in navigating complex immigration laws, AoneVisa ensures a seamless and efficient experience for clients from start to finish.",
     image: AoneVisa,
+    projectLink: "https://www.aonevisa.com"
   },
   {
     id: 2,
     title: "Turf",
     description:
-      "Lorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenati.Lorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenatiLorem nisi, auctor vitae vestibulum aenean ipsum, arcu commodo, blandit. Ligula sed nulla sit adipiscing facilisis tortor cras. Donec venenati",
+      "Playlink is an innovative platform designed to revolutionize the way sports enthusiasts book venues and connect with other players. Whether you're looking to book a turf, court, or any sports venue, Playlink makes the process seamless and efficient. Our platform allows users to find and book venues with ease, join or organize sports events, and discover other players with similar interests. We aim to support venue owners by increasing their visibility and customer base, creating a thriving community for sports and recreational activities.Playlink is dedicated to enhancing the sporting experience by providing a comprehensive solution for all your booking and event organization needs.",
     image: Turf,
+    projectLink: "https://www.linkedin.com/company/playlink-in/"
   },
 
   // Add more projects as needed
@@ -55,6 +57,8 @@ const Carousel = () => {
     });
   };
 
+  const redirect = () => {};
+
   useEffect(() => {
     // Run on component mount and on every scroll
     checkScrollPosition();
@@ -80,12 +84,20 @@ const Carousel = () => {
             {projectData.map((project) => (
               <ProjectsContainer key={project.id}>
                 <ImageContainer>
+                <StyledRef
+                    href={project.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                   <Image src={project.image} alt={project.title} />
+                  </StyledRef>
                 </ImageContainer>
                 <TextWrapper>
-                  <GradientTextContainer>
-                    <GradientText>{project.title}</GradientText>
-                  </GradientTextContainer>
+                  
+                    <GradientTextContainer>
+                      <GradientText>{project.title}</GradientText>
+                    </GradientTextContainer>
+                  
                   <ProjectDescription>{project.description}</ProjectDescription>
                 </TextWrapper>
               </ProjectsContainer>
@@ -182,6 +194,8 @@ const TextWrapper = styled.div`
   justify-content: flex-start;
   text-align: left;
 `;
+
+const StyledRef = styled.a``;
 
 const GradientTextContainer = styled.div`
   display: inline-block;

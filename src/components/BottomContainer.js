@@ -119,14 +119,14 @@ const Footer = () => {
           <IconImage src={gmail} alt="Gmail" />
         </IconCircle>
         <IconCircle
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/celumestudios?igsh=MmM1bTZnbTg0NGl2"
           target="_blank"
           rel="noopener noreferrer"
         >
           <IconImage src={insta} alt="Instagram" />
         </IconCircle>
         <IconCircle
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/company/celume-studios/"
           target="_blank"
           rel="noopener noreferrer"
         >
