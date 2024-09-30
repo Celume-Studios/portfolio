@@ -10,6 +10,8 @@ import SEOLogo from "../images/SEOLogo.png";
 import AppDevLogo from "../images/AppDevLogo.png";
 import CelumeAi from "../images/CelumeAiCircle.png";
 import vector from "../images/CelumeAiVector.png";
+import VirtualTour from "./VirtualTour";
+import { useNavigate } from "react-router-dom";
 
 const MainContainer = styled.div`
   background: radial-gradient(
@@ -240,7 +242,17 @@ const IconsGrid = styled.div`
   }
 `;
 
+
+
 const ServicesContainer = () => {
+
+  const navigate = useNavigate();  
+
+  const handleItemClick = () => {
+    navigate('/virtual-tour');  
+  };
+
+
   return (
     <MainContainer>
       <ExploreCelumeAiButton id="about-us">
@@ -286,7 +298,8 @@ const ServicesContainer = () => {
           <Label>SEO</Label>
           <Description>Keep track of meetings and agendas</Description>
         </ItemContainer>
-        <ItemContainer>
+        <ItemContainer onClick={handleItemClick}
+        style={{ cursor: 'pointer' }} >
           <Icon src={GamingLogo} alt="Game Making" />
           <Label>3D Applications 
           </Label>
