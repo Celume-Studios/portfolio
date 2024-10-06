@@ -2,44 +2,63 @@ import React from "react";
 import styled from "styled-components";
 import BottomContainer from "./BottomContainer";
 
-// Styled components for the footer container and elements
 const FooterContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  background-color: #111; /* Change this to your desired background color */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background-color: #111;
   padding: 30px 0;
-  margin-left: 30px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 100px;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 0;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 `;
 
 const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px; /* 80px gap between each text vertically */
+  gap: 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const FooterHeading = styled.h3`
-  width: 180px;
-  height: 24px;
   color: var(--WhiteBlack-White, #fff);
   font-family: "Open Sans Hebrew";
-  font-size: 30px;
-  font-style: normal;
+  font-size: 26px;
   font-weight: 400;
-  line-height: 10%;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const FooterLink = styled.p`
   color: var(--white-black-70, #b3b3b3);
   font-family: Roboto;
-  font-size: 28px;
-  font-style: normal;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 30%; /* 48px */
   cursor: pointer;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 

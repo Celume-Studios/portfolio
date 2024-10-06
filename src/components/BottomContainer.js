@@ -16,41 +16,52 @@ const FooterContainer = styled.div`
   width: 100%;
   background-color: #111;
   box-sizing: border-box;
-  margin-top: 300px;
+  margin-top: 150px;
 `;
 
 const IconsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 10px; /* Reduced gap between icons */
   width: 100%;
   max-width: 1200px;
+  
+  @media (max-width: 768px) {
+    flex-direction: row; /* Ensure row layout on medium screens */
+    justify-content: center; /* Center icons */
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: row; /* Two columns for small screens */
+    justify-content: space-between; /* Adjust for spacing */
+  }
 `;
 
 const IconCircle = styled.a`
-  width: 90px;
-  height: 90px;
+  width: 70px; /* Slightly reduced size */
+  height: 70px; /* Slightly reduced size */
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--white-black-10, #1A1A1A);
-  border-radius: 51px;
+  border-radius: 50%; /* Make it circular */
   cursor: pointer; 
   transition: transform 0.2s;
 
   &:hover {
     transform: scale(1.1); 
+  }
 `;
 
 const IconImage = styled.img`
-  width: 48px;
-  height: 48px;
+  width: 36px; /* Reduced icon size */
+  height: 36px; /* Reduced icon size */
 `;
 
 const IconFb = styled.img`
   width: 24px;
-  height: 48px;
+  height: 36px;
 `;
 
 const SeparatorLine = styled.div`
