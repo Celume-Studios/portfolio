@@ -383,7 +383,7 @@ const ServicesContainer = () => {
                 style={{ width: "100%", marginBottom: "1rem" }}
                 onClick={() => handleOptionSelect("/virtual-tour")}
               >
-                Janapriya Bhaithi
+                Janapriya Bahiti
               </MobileNavLink>
               <MobileNavLink
                 type="default"
