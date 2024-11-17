@@ -44,6 +44,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/virtual-tour" element={<VirtualTour />} />
+        <Route path="/nile-valley/2bhk" element={<VirtualTour iframeSrc="https://kuula.co/share/collection/7Znxf?logo=1&card=1&info=0&logosize=40&fs=1&vr=1&zoom=1&thumbs=-1&margin=2&keys=0" />} />
+        <Route path="/nile-valley/3bhk" element={<VirtualTour iframeSrc="https://kuula.co/share/collection/7Z6G5?logo=1&card=1&info=0&logosize=40&fs=1&vr=1&zoom=1&thumbs=3&keys=0" />} />
+        <Route path="/nile-valley/club-house" element={<VirtualTour iframeSrc="https://kuula.co/share/collection/7Z6YM?logo=1&card=1&info=0&logosize=40&fs=1&vr=1&zoom=1&thumbs=3&keys=0" />} />
         <Route path="*" element={<MainLayout />} />
       </Routes>
     </Router>

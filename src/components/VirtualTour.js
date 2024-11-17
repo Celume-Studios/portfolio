@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 
-const VirtualTour = () => {
-  const [iframeSrc, setIframeSrc] = useState("");
+const VirtualTour = ({ iframeSrc: propIframeSrc }) => {
+  const [iframeSrc, setIframeSrc] = useState(propIframeSrc || "");
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (!propIframeSrc) {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    if (/android/i.test(userAgent)) {
-      setIframeSrc(
-        "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&thumbs=-1&alpha=0.69"
-      );
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      setIframeSrc(
-        "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&gyro=0&thumbs=-1&alpha=0.69"
-      );
-    } else {
-      setIframeSrc(
-        "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&thumbs=-1&alpha=0.69"
-      );
+      if (/android/i.test(userAgent)) {
+        setIframeSrc(
+          "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&thumbs=-1&alpha=0.69"
+        );
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        setIframeSrc(
+          "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&gyro=0&thumbs=-1&alpha=0.69"
+        );
+      } else {
+        setIframeSrc(
+          "https://kuula.co/share/collection/7KWkR?logo=1&info=0&logosize=40&fs=0&vr=1&sd=1&thumbs=-1&alpha=0.69"
+        );
+      }
     }
-  }, []);
+  }, [propIframeSrc]);
 
   return (
     <div

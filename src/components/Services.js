@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import BackgroundImage from "../images/BackgroundImage.png";
 import ContactUsArrow from "../images/ContactUsArrow";
@@ -11,6 +12,8 @@ import AppDevLogo from "../images/AppDevLogo.png";
 import CelumeAi from "../images/CelumeAiCircle.png";
 import vector from "../images/CelumeAiVector.png";
 import VirtualTour from "./VirtualTour";
+import { Modal, Button } from "antd";
+
 import { useNavigate } from "react-router-dom";
 
 const MainContainer = styled.div`
@@ -156,6 +159,31 @@ const StyledButton = styled.div`
     height: 50px;
   }
 `;
+const StyledModalButton = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 211px;
+  height: 30px;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 40px;
+  background: #cf3a00;
+  box-shadow: 0px 4px 128px 0px rgba(255, 10, 10, 0.32),
+    0px 4px 64px 0px rgba(255, 10, 10, 0.32);
+  transition: background 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 58, 0, 0.8);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 180px;
+    height: 50px;
+  }
+`;
 const ArrowIcon = styled.div`
   display: flex;
   align-items: center;
@@ -274,8 +302,20 @@ const IconsGrid = styled.div`
 const ServicesContainer = () => {
   const navigate = useNavigate();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleItemClick = () => {
-    navigate("/virtual-tour");
+    setIsModalOpen(true); 
+  };
+
+  const handleOptionSelect = (path) => {
+    setIsModalOpen(false); 
+    navigate(path); 
+  };
+
+  const handleClose = (e) => {
+    e.stopPropagation();
+    setIsModalOpen(false); 
   };
 
   return (
@@ -330,6 +370,56 @@ const ServicesContainer = () => {
             We cover everything AR and VR applications to virtual interactive
             tours tailor made for customer experience
           </Description>
+          <StyledModal
+            title="Virtual Tours"
+            visible={isModalOpen} 
+            onCancel={handleClose} 
+            footer={null} 
+            width={400}
+          >
+            <div>
+              <MobileNavLink
+                type="default"
+                style={{ width: "100%", marginBottom: "1rem" }}
+                onClick={() => handleOptionSelect("/virtual-tour")}
+              >
+                Janapriya Bhaithi
+              </MobileNavLink>
+              <MobileNavLink
+                type="default"
+                style={{ width: "100%", marginBottom: "1rem" }}
+                onClick={() => handleOptionSelect("/nile-valley/2bhk")}
+              >
+                Nile Valley 2 BHK 
+              </MobileNavLink>
+              <MobileNavLink
+                type="default"
+                style={{ width: "100%", marginBottom: "1rem" }}
+                onClick={() => handleOptionSelect("/nile-valley/3bhk")}
+              >
+               Nile Valley 3 BHK 
+              </MobileNavLink>
+              <MobileNavLink
+                type="default"
+                style={{ width: "100%", marginBottom: "1rem" }}
+                onClick={() => handleOptionSelect("/nile-valley/club-house")}
+              >
+               Nile Valley Club House
+              </MobileNavLink>
+            </div>
+            <StyledModalButton
+              style={{
+                width: "100%",
+                backgroundColor: "red",
+                color: "white",
+                border: "none",
+                marginTop: "1rem",
+              }}
+              onClick={handleClose}
+            >
+              Close
+            </StyledModalButton>
+          </StyledModal>
         </ItemContainer>
         <ItemContainer>
           <Icon src={AppDevLogo} alt="App Development" />
@@ -348,6 +438,94 @@ const ServicesContainer = () => {
 
 export default ServicesContainer;
 
+
+const StyledModal = styled(Modal)`
+  .ant-modal-content {
+    background-color: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+    height: 100%; 
+  }
+
+  .ant-modal-header {
+    border-radius: 20px 20px 0 0; 
+    padding: 16px 24px; 
+    background: rgba(255, 255, 255, 0.01); 
+    backdrop-filter: blur(10px); 
+    width: 90%;
+  }
+
+  .ant-modal-title {
+    color: #fff; 
+    font-size: 18px; 
+    margin: 0; 
+  }
+
+  .ant-modal-footer {
+    border-top: none; 
+    padding: 20px; 
+  }
+
+  .ant-modal-close {
+    display: none;
+  }
+
+  .ant-modal {
+    width: 100%;
+    max-width: 800px; 
+  }
+
+  
+  @media (max-width: 768px) {
+    .ant-modal-content {
+      padding: 10px; 
+    }
+
+    .ant-modal-header {
+      padding: 10px 15px; 
+    }
+
+    .ant-modal-title {
+      font-size: 16px; 
+    }
+
+    .ant-modal-footer {
+      padding: 10px; 
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ant-modal {
+      width: 90%; /* Full width for very small screens */
+      max-width: 100%; /* Ensure full width on small screens */
+    }
+
+    .ant-modal-content {
+      padding: 8px; 
+    }
+  }
+`;
+
+const MobileNavLink = styled.p`
+  color: #e9e9e9;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  &:hover {
+    color: #ff5700;
+  }
+`;
 const scrollToSection = (id) => {
   const section = document.getElementById(id);
   if (section) {
