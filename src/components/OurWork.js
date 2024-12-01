@@ -14,14 +14,7 @@ const projectData = [
     image: AoneVisa,
     projectLink: "https://www.aonevisa.com"
   },
-  {
-    id: 2,
-    title: "Turf",
-    description:
-      "Playlink is an innovative platform designed to revolutionize the way sports enthusiasts book venues and connect with other players. Whether you're looking to book a turf, court, or any sports venue, Playlink makes the process seamless and efficient. Our platform allows users to find and book venues with ease, join or organize sports events, and discover other players with similar interests. We aim to support venue owners by increasing their visibility and customer base, creating a thriving community for sports and recreational activities.Playlink is dedicated to enhancing the sporting experience by providing a comprehensive solution for all your booking and event organization needs.",
-    image: Turf,
-    projectLink: "https://www.linkedin.com/company/playlink-in/"
-  },
+  
 
   // Add more projects as needed
 ];
